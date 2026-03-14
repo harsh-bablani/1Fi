@@ -1,7 +1,9 @@
+require("dotenv").config();
 const mongoose = require("mongoose")
 const Product = require("../models/Product")
 
-mongoose.connect("mongodb+srv://harsh:harsh123@cluster0.ssctyc6.mongodb.net/?appName=Cluster0")
+const seedUri = process.env.MONGODB_URI || "mongodb+srv://harsh:harsh123@cluster0.ssctyc6.mongodb.net/1fi?retryWrites=true&w=majority";
+mongoose.connect(seedUri)
 
 const products = [
     {

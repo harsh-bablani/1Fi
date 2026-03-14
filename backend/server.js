@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
@@ -5,10 +6,11 @@ const productRoutes = require("./routes/productRoutes")
 
 const app = express()
 
+// Enable CORS for all origins (frontend in different domains can call this API)
 app.use(cors())
 app.use(express.json())
 
-const mongoUrl = process.env.MONGODB_URI || "mongodb+srv://harsh:harsh123@cluster0.ssctyc6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoUrl = process.env.MONGODB_URI || "mongodb+srv://harsh:harsh123@cluster0.ssctyc6.mongodb.net/1fi?retryWrites=true&w=majority";
 
 mongoose.connect(mongoUrl, {
     family: 4,
