@@ -21,6 +21,7 @@ router.get("/products", async (req, res) => {
                     asObj.price = variant.price;
                     asObj.mrp = variant.mrp;
                     asObj.selectedVariant = storage;
+                    asObj.emiPlans = variant.emiPlans; // Use variant-specific EMI plans
                 }
                 return asObj;
             });

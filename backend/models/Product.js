@@ -13,7 +13,15 @@ const productSchema = new mongoose.Schema({
             storage: { type: String, required: true },
             price: { type: Number, required: true },
             mrp: { type: Number, required: true },
-            stock: { type: Number, default: 0 }
+            stock: { type: Number, default: 0 },
+            emiPlans: [
+                {
+                    monthlyPayment: Number,
+                    tenure: Number,
+                    interestRate: String,
+                    cashback: Number
+                }
+            ]
         }
     ],
     image: String,
@@ -23,15 +31,8 @@ const productSchema = new mongoose.Schema({
             color: { type: String, required: true },
             image: { type: String, required: true }
         }
-    ],
-    emiPlans: [
-        {
-            monthlyPayment: Number,
-            tenure: Number,
-            interestRate: String,
-            cashback: Number
-        }
     ]
+    // Removed emiPlans from product level - now per variant
 });
 
 module.exports = mongoose.model("Product", productSchema);

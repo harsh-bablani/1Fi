@@ -194,7 +194,7 @@ export default function ProductPage() {
                             </h2>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {product.emiPlans?.map((plan, index) => {
+                                {activeVariant.emiPlans?.map((plan, index) => {
                                     const isSelected = selectedPlan === index;
                                     return (
                                         <div
@@ -259,7 +259,7 @@ export default function ProductPage() {
                             </button>
                             <button 
                                 disabled={selectedPlan === null || outOfStock}
-                                onClick={() => addToCart(product, product.emiPlans[selectedPlan], selectedColor, activeVariant)}
+                                onClick={() => addToCart(product, activeVariant.emiPlans[selectedPlan], selectedColor, activeVariant)}
                                 className={`flex-[1.5] py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2 transition-all duration-300
                                     ${selectedPlan !== null && !outOfStock 
                                         ? "bg-gradient-to-r from-[#FB641B] to-[#FF3F00] text-white shadow-xl shadow-orange-500/40 hover:-translate-y-1 active:scale-95" 
